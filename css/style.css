@@ -1,0 +1,15 @@
+body{background-color: #fffae0;}
+.todo-wrap{max-width: 500px; margin: 0 auto; background-color: white; border-radius: 15px; box-shadow: 0px 2px 2px 2px rgba(100,100,100,0.1); padding: 15px; margin-top: 50px;}
+.todo-header{position: relative;}
+.todo-header h1{font-family: "Noto Medium"; text-align: center; font-size: 30px;}
+.todo-content{margin-top: 10px;}
+.todo-content #todoInput{border: 1px solid #ccc; height: 30px; padding: 0 10px; font-family: "Noto Regular"; font-size: 14px; width: calc(100% - 64px);}
+.todo-content #todoCreate{width: 60px; height: 30px; background-color: transparent; border: 1px solid #ccc; color: #111; font-family: "Noto Regular"; font-size: 14px; cursor: pointer;}
+.todo-content #todoCreate:hover{background-color: #111; color: white; border: 1px solid #ccc}
+.todo-main{margin-top: 20px;}
+.todo-main li{padding: 10px; border-bottom: 1px solid #ccc;}
+.todo-main li:last-child{border-bottom: 0;}
+.todo-main li .todo-check{vertical-align: top; margin-right: 10px; margin-top: 5px;}
+.todo-main li p{display: inline-block; max-width: calc(100% - 83px); word-break: break-all; line-height: 23px;}
+.todo-main li .todo-delete{vertical-align: top; margin-left: 10px; border: 1px solid #999; background-color: transparent; font-family: "Noto Regular"; font-size: 14px; cursor: pointer;}
+.todo-main .no-data{width: 100%; border: 1px solid #eee; padding: 10px; text-align: center; border-bottom: 1px solid #eee !important; font-family: "Noto Medium";}

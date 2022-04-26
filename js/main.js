@@ -21,12 +21,13 @@ function addTesk(value) {
     const newTodo = todos.concat({id: newId, completed: false, todo: value});
     todos = newTodo;
     TODO_INPUT.value = "";
+    todoList;
 }
 
 const todoList = todos.map(() => {
     const todoElement = document.createElement("li");
-    
+    todoElement.append(todoElement.todo);
 })
 
 TODO_SUBMIT_BUTTON.addEventListener("click", todoAdd);
-TODO_INPUT.addEventListener("click", drawTodo);
+TODO_INPUT.addEventListener("click", todoList);

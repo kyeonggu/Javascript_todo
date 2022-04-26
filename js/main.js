@@ -1,11 +1,6 @@
 const TODO_INPUT = document.getElementById("todoInput");
 const TODO_SUBMIT_BUTTON = document.getElementById("todoCreate");
-const TODO_CHECK_BOX = document.querySelectorAll(".todo-check");
-const TODO_DELETE_BUTTON = document.querySelectorAll(".todo-delete");
 const TODO_WRAP = document.querySelector(".todo-main ul");
-
-let todos = [];
-let id = 0;
 
 function todoAdd(){
     if(TODO_INPUT.value == "") {
@@ -17,17 +12,59 @@ function todoAdd(){
 }
 
 function addTesk(value) {
-    const newId = id++;
-    const newTodo = todos.concat({id: newId, completed: false, todo: value});
-    todos = newTodo;
+    const todoItem = document.createElement("li");
+    todoItem.classList.add("todo-box");
+    todoItem.innerHTML = `<label for="todo-check"></label><input type="checkbox" class="todo-check"><p>${value}</p><button class="todo-delete">삭제</button>`;
+    TODO_WRAP.appendChild(todoItem);
     TODO_INPUT.value = "";
-    todoList;
+    deleteEvent();
+    checkEvent();
+
+    let todoItemLength = document.getElementsByClassName("todo-box").length;
+    if(todoItemLength >= 1) {
+        const NO_DATA = document.querySelector(".no-data");
+        NO_DATA.remove();
+    }
 }
 
-const todoList = todos.map(() => {
-    const todoElement = document.createElement("li");
-    todoElement.append(todoElement.todo);
-})
+function todoDelete(e) {
+    const DELETE_ELEMENT = e.target.parentNode;
+    DELETE_ELEMENT.remove();
+
+    let todoItemLength = document.getElementsByClassName("todo-box").length;
+    const NO_DATA = document.createElement("li");
+    NO_DATA.classList.add("no-data");
+    NO_DATA.innerHTML = "데이터가 없습니다."
+
+    if(todoItemLength == 0) {
+        TODO_WRAP.appendChild(NO_DATA);
+    }
+}
+
+function todoCheck(e) {
+    const CHECK_ELEMENT = e.target.parentNode;
+
+    if(e.target.checked == true) {
+        CHECK_ELEMENT.classList.add("checked");
+    } else {
+        CHECK_ELEMENT.classList.remove("checked");
+    }
+}
+
+function deleteEvent() {
+    const TODO_DELETE_BUTTON = document.querySelectorAll(".todo-delete");
+
+    for(var i=0; i<TODO_DELETE_BUTTON.length; i++) {
+        TODO_DELETE_BUTTON[i].addEventListener("click", todoDelete);
+    }
+}
+
+function checkEvent() {
+    const TODO_CHECKBOX = document.querySelectorAll(".todo-check");
+
+    for(var i=0; i<TODO_CHECKBOX.length; i++) {
+        TODO_CHECKBOX[i].addEventListener("click", todoCheck);
+    }
+}
 
 TODO_SUBMIT_BUTTON.addEventListener("click", todoAdd);
-TODO_INPUT.addEventListener("click", todoList);

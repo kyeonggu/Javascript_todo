@@ -67,4 +67,10 @@ function checkEvent() {
     }
 }
 
+function enterKey() {
+    if(window.event.keyCode == 13) {
+        todoAdd();
+    }
+}
+
 TODO_SUBMIT_BUTTON.addEventListener("click", todoAdd);

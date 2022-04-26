@@ -14,4 +14,4 @@ body{background-color: #fffae0;}
 .todo-main li .todo-delete{vertical-align: top; margin-left: 10px; border: 1px solid #999; background-color: transparent; font-family: "Noto Regular"; font-size: 14px; cursor: pointer;}
 .todo-main li.checked p{color: #aaaaaa; text-decoration: line-through;}
 .todo-main li.checked .todo-delete{border: 1px solid #aaa; color: #aaa;}
-.todo-main .no-data{width: 100%; border: 1px solid #eee; padding: 10px; text-align: center; border-bottom: 1px solid #eee !important; font-family: "Noto Medium";}
+.todo-main .no-data{width: 100%; border: 1px solid #eee; padding: 13px 10px; text-align: center; border-bottom: 1px solid #eee !important; font-family: "Noto Medium";}
